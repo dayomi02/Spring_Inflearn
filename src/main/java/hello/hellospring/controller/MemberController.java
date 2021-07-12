@@ -7,10 +7,19 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class MemberController {
 
-    private final MemberService memberService;
+    private MemberService memberService;
+//    DI방법 : 필드 주입
+//    @Autowired private MemberService memberService;
 
+//    DI방법 : setter 주입
+//    @Autowired
+//    public void setMemberService(MemberService memberService) {
+//        this.memberService = memberService;
+//    }
+
+//    DI방법 :  생성자 주입 (요즘 가장 많이 사용하는 방법)
+//    Controller와 Service를 연결시켜줌
     @Autowired
-    // Controller와 Service를 연결시켜줌
     public MemberController(MemberService memberService) {
         this.memberService = memberService;
     }
